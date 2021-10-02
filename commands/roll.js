@@ -6,7 +6,7 @@ module.exports = {
 		.setName('roll')
 		.setDescription('Makes buttons to roll dice'),
 	async execute(interaction) {
-		const row = new MessageActionRow()
+		const row1 = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
 					.setCustomId('d4')
@@ -24,7 +24,8 @@ module.exports = {
 					.setCustomId('d8')
 					.setLabel('d8')
 					.setStyle('PRIMARY'),
-			)
+			);
+		const row2 = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
 					.setCustomId('d10')
@@ -36,7 +37,14 @@ module.exports = {
 					.setCustomId('d12')
 					.setLabel('d12')
 					.setStyle('PRIMARY'),
+			)
+			.addComponents(
+				new MessageButton()
+					.setCustomId('d20')
+					.setLabel('d20')
+					.setStyle('PRIMARY'),
 			);
-		await interaction.reply({ content: 'ROll!', components: [row] }); 
+				
+		await interaction.reply({ content: 'Roll!', components: [row1, row2] }); 
 	},
 };
